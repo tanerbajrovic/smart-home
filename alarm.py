@@ -16,7 +16,7 @@ class AlarmState:
     # Unlock
     def unlock(self, code: str) -> None:
         if self.code is None or self.code == code:
-            self.locked = True
+            self.locked = False
         
     # Lock
     def lock(self) -> None:
