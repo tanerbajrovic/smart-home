@@ -3,6 +3,7 @@ class AlarmState:
     # Constructor
     def __init__(self, locked: bool):
         self.code = None
+        self.resetCode = "9999"
         self.locked = locked
     
     # Is the code set?
@@ -14,16 +15,18 @@ class AlarmState:
         return self.locked
     
     # Unlock
-    def unlock(self, code: str) -> None:
-        if self.code is None or self.code == code:
+    def unlock(self, code: str) -> bool:
+        if not self.hasCode() or self.code == code:
             self.locked = False
+            return not self.locked
         
     # Lock
     def lock(self) -> None:
         self.locked = True
         
     # Set code
-    def setCode(self, newCode: str) -> None:
-        self.code = newCode
+    def setCode(self, new_code: str) -> None:
+        self.code = new_code
+        
       
 
