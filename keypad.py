@@ -23,7 +23,6 @@ key_map = [
     ["*", "0", "#", "D"]
 ]
 
- 
 previousKey = None 
 def Keypad4x4Read(cols, rows):
     global states

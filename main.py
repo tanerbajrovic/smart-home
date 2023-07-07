@@ -22,8 +22,9 @@ alarmState = AlarmState(locked = False)
 pirSensor = Pin(28, Pin.IN)
 buzzer = Buzzer(13)
 
-
+# Tracks whether movement detection has been sent 
 signalSent = False
+
 # Handler method for IRQ interrupt of PIR sensor.
 def motionDetected(t):
     global signalSent
@@ -162,8 +163,8 @@ def showBrickedScreen() -> None:
         sleep(0.5)
 
 
+# Remaining code attempts
 attemptsLeft = 3
-
 
 def beginCountdown(duration: int) -> None:
     display.erase()
@@ -181,6 +182,7 @@ def beginCountdown(duration: int) -> None:
         sleep(1)
 
 
+# Logic for code verification and alarm deactivation
 def inputSecretCode() -> str:
     global pin_digits, attemptsLeft
     # display.erase()
@@ -201,6 +203,7 @@ def inputSecretCode() -> str:
     return stringCode             
     
 
+# Logic for adding a new code
 def setNewCode() -> None:
     display.erase()
     display.set_pos(LEFT_MARGIN, TOP_MARGIN)
